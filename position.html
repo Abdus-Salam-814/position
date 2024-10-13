@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <link rel="shortcut icon" href="fav.gif" type="image/x-icon">
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: slateblue;
+        }
+        .container{
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            
+        }
+        .box{
+            border-radius: 15px;
+            padding: 40px;
+            border: 17px double white;
+            box-shadow: 10px 10px 30px lightskyblue;
+        }
+        .box-1{
+            position: relative;
+            right: -140px;
+            top: -50px;
+            z-index: 4;
+        }
+        .box-2{
+            z-index: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Position</h1>
+    <h3>More Position</h3>
+
+    <section class="container">
+        <!-- .box.box-$*4>h3{Box-$} -->
+        <div class="box box-1">
+            <h3>Box-1</h3>
+        </div>
+        <div class="box box-2">
+            <h3>Box-2</h3>
+            <p>Relative Position</p>
+        </div>
+        <div class="box box-3">
+            <h3>Box-3</h3>
+        </div>
+        <div class="box box-4">
+            <h3>Box-4</h3>
+        </div>
+    </section>
+</body>
+</html>
