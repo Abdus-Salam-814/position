@@ -6,6 +6,34 @@
     <title>Position</title>
     <link rel="shortcut icon" href="fav.gif" type="image/x-icon">
     <style>
+        body:hover{
+            .box-1{
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 100%;
+            }
+            .box-2{
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+            .box-3{
+                position: relative;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+           
+        }
+        body{
+            user-select: none;
+        }
         .box{
             width: 200px;
             height: 200px;
@@ -15,6 +43,7 @@
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
+            /* position: relative; */
             
         }
         .box{
@@ -28,32 +57,86 @@
             right: -140px;
             top: -50px;
             z-index: 4;
+            opacity: 90%;
         }
         .box-2{
             z-index: 0.7;
         }
 
+        .box-3{
+            position: absolute;
+            top: 160px;
+
+        }
+        
+        .my-heading{
+            position: relative;
+        }
+
+        @media print {
+  .hide-on-screenshot {
+    display: none;
+  }
+}
+
     </style>
+    <script>
+        // রাইট-ক্লিক নিষ্ক্রিয়
+        document.addEventListener('contextmenu', function(event) {
+          event.preventDefault();
+        });
+      </script>
+<script>
+    // কন্ট্রোল + ইউ, কন্ট্রোল + এস, F12 বা প্রিন্ট স্ক্রিন নিষ্ক্রিয়
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'PrintScreen') {
+        alert('Screenshots are disabled!');
+        event.preventDefault();
+      }
+      if (event.ctrlKey && (event.key === 's' || event.key === 'u' || event.key === 'Shift' || event.key === 'I')) {
+        alert('Keyboard shortcuts are disabled!');
+        event.preventDefault();
+      }
+    });
+  </script>
+        
 </head>
-<body>
-    <h1>Position</h1>
+<body onclick="printPage()">
+    <h1 class="my-heading">Position</h1>
     <h3>More Position</h3>
 
-    <section class="container">
-        <!-- .box.box-$*4>h3{Box-$} -->
-        <div class="box box-1">
-            <h3>Box-1</h3>
-        </div>
-        <div class="box box-2">
-            <h3>Box-2</h3>
-            <p>Relative Position</p>
-        </div>
-        <div class="box box-3">
-            <h3>Box-3</h3>
-        </div>
-        <div class="box box-4">
-            <h3>Box-4</h3>
-        </div>
-    </section>
+    <main class="my-heading">
+        <h1>love my positon</h1>
+        <section class="container">
+            <!-- .box.box-$*4>h3{Box-$} -->
+            <div class="box box-1">
+                <h3>Box-1</h3>
+            </div>
+            <div class="box box-2">
+                <h3>Box-2</h3>
+                <p>Relative Position</p>
+            </div>
+            <div class="box box-3">
+                <h3>Box-3</h3>
+            </div>
+            <div class="box box-4">
+                <h3>Box-4</h3>
+            </div>
+        </section>
+       </main>
+
+       <script>
+        function printPage() {
+          // প্রিন্ট করার সময় এলিমেন্ট লুকানো
+          var element = document.getElementById('hide-on-print');
+          element.style.background = 'black';
+          
+          // প্রিন্ট ডায়ালগ খোলার জন্য প্রিন্ট কমান্ড
+          window.print();
+    
+          // প্রিন্ট শেষ হলে এলিমেন্ট পুনরায় প্রদর্শন করা
+          element.style.display = 'block';
+        }
+      </script>
 </body>
 </html>
